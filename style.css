@@ -125,7 +125,10 @@ nav ul li a.active {
 
 /* --- Hero (Página de Inicio) --- */
 #hero {
-    background-color: var(--dark-color);
+    background-image: url('soporte-ti-3.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: grayscale(100%);
     color: var(--text-color);
     display: flex;
     justify-content: center;
@@ -142,15 +145,33 @@ nav ul li a.active {
     font-size: 3.5rem;
     line-height: 1.2;
     margin-bottom: 1rem;
-    color: var(--text-color);
+    color: #ffffff
 }
 
 #hero p {
     font-size: 1.2rem;
-    color: var(--gray-text);
+    color: #ffffff;
     margin-bottom: 2rem;
 }
+/* --- ESTILOS ADICIONALES PARA EL MAPA --- */
 
+.map-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 75%; /* Ajusta la proporción si es necesario */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem; /* Añade espacio entre la lista y el mapa */
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
 /* --- Secciones de Vista Previa (Página de Inicio) --- */
 #services-preview, #portfolio-preview {
     background-color: var(--white-color);
@@ -432,10 +453,61 @@ align-items: center;
 gap: 10px; / Espacio entre la imagen y el texto (si lo hubiera) /
 / Mantén los otros estilos existentes para .logo */
 }
+/* --- ESTILOS ADICIONALES PARA LA PÁGINA DE SERVICIOS --- */
 
+.service-detail-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Estilo para alternar la dirección en las secciones impares */
+.service-detail:nth-child(odd) .service-detail-container {
+    flex-direction: row-reverse;
+}
+
+.service-image, .service-text {
+    flex: 1; /* Cada uno ocupa la mitad del espacio */
+}
+
+.service-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.service-text h2 {
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.service-text ul {
+    list-style-position: inside;
+    padding-left: 20px;
+    margin-top: 1rem;
+}
+
+.service-text ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* --- Responsividad para la nueva sección de servicios --- */
 @media (max-width: 900px) {
     .project-details-layout {
         flex-direction: column;
+    }
+        .service-detail-container,
+    .service-detail:nth-child(odd) .service-detail-container {
+        flex-direction: column; /* Apila los elementos en pantallas pequeñas */
+    }
+
+    .service-text h2 {
+        text-align: center;
     }
 }
 
